@@ -1,20 +1,22 @@
 {
-  "name": "s-com",
   "version": "1.0.0",
   "main": "index.js",
   "author": "Christian Höpfner <chriz.hoepfner@gmail.com>",
   "private": true,
   "workspaces": [
     "clients/*",
-    "services/*"
+    "services/*",
+    "packages/*"
   ],
   "scripts": {
-    "build": "turbo run build",
-    "dev": "turbo run dev --parallel",
-    "lint": "turbo run lint",
-    "test": "turbo run test"
+    "build": "dotenv -- turbo run build",
+    "dev": "dotenv -- turbo run dev --parallel",
+    "lint": "dotenv -- turbo run lint",
+    "test": "dotenv -- turbo run test",
+    "test:watch": "dotenv -- turbo run test:watch"
   },
   "dependencies": {
-    "turbo": "^1.7.0"
+    "dotenv-cli": "7.0.0",
+    "turbo": "1.7.0"
   }
 }

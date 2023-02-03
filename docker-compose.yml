@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+  loan-calculator-client:
+    container_name: loan-calculator-client
+    build:
+      context: .
+      dockerfile: ./clients/loan-calculator-client/Dockerfile
+      args:
+        - NEXT_PUBLIC_API_HOST
+    restart: always
+    ports:
+      - 8000:3000
+
+  loan-calculator-service:
+    platform: linux/amd64
+    container_name: loan-calculator-service
+    build:
+      context: .
+      dockerfile: ./services/loan-calculator-service/Dockerfile
+    restart: always
+    ports:
+      - 3000:3000

@@ -1,0 +1,16 @@
+{
+  "name": "@s-com/types",
+  "version": "1.0.0",
+  "description": "Shared types",
+  "main": "dist/index.js",
+  "types": "index.ts",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "zod": "3.20.2"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch"
+  }
+}

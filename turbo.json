@@ -1,19 +1,21 @@
 {
   "$schema": "https://turbo.build/schema.json",
+  "globalDependencies": [".env"],
   "pipeline": {
     "dev": {
-      "cache": false
+      "cache": false,
+      "persistent": true,
+      "dependsOn": ["@s-com/types#build"]
     },
-    "client#*": {
-      "env": ["NEXT_PUBLIC_API_HOST"]
+    "build": {
+      "outputs": ["dist/**", ".next/**"],
+      "dependsOn": ["lint", "test"]
     },
-    "test": {
-      "dependsOn": ["build"],
-      "outputs": ["coverage/**"],
-      "inputs": ["src/**/*.tsx", "src/**/*.ts", "test/**/*.ts", "test/**/*.tsx"]
-    },
-    "lint": {
-      "outputs": []
+    "lint": {},
+    "test": {},
+    "test:watch": {
+      "cache": false,
+      "persistent": true
     }
   }
 }

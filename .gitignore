@@ -5,6 +5,9 @@
 
 # misc
 .DS_Store
+.vscode
+dist
+reports
 
 # debug
 npm-debug.log*
